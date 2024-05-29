@@ -13,7 +13,7 @@ while ($currentValue <= MAX_VALUE) {
     if ($index === $levelCount) {
         $index = 0;
         $levelCount++;
-        print("\n");
+        print(PHP_EOL);
         continue;
     }
 

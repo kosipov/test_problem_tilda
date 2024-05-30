@@ -1,5 +1,7 @@
 <?php
 
+const MAX_VALUE_RANGE = 1000;
+
 const ROWS_COUNT = 5;
 const COL_COUNT = 7;
 
@@ -11,17 +13,16 @@ print_r(findSumByRow($array));
 
 function createRandValuesArray(): array
 {
+    $sourceArray = range(1, MAX_VALUE_RANGE);
+    shuffle($sourceArray);
     $array = [];
-    $randStart = 0;
-    $randEnd = 10;
-    $randStep = 10;
+    $step = 0;
 
     for ($i = 0; $i < COL_COUNT; $i++) {
         $rowsArray = [];
         for ($j = 0; $j < ROWS_COUNT; $j++) {
-            $rowsArray[] = random_int($randStart, $randEnd - 1);
-            $randStart += $randStep;
-            $randEnd += $randStep;
+            $rowsArray[] = $sourceArray[$step];
+            $step++;
         }
         $array[] = $rowsArray;
     }
